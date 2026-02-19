@@ -109,5 +109,27 @@ Setup → Placement (Player 1) → Placement (Player 2) → Pass → Play → Ga
 - This is a local two player game on a shared device.
 - Enemy ships are hidden during gameplay.
 
-## AI usage statement
-AI tools were used to assist with UI styling and implementation guidance. All final code was integrated and tested manually.
+## Assets
+- `src/assets/sounds/`: hit, miss, sunk, click sound effects
+- Source: https://freesound.org/search
+- License: not applicable (self made) / (or write the license from the source)
+
+## AI usage and validation
+AI tools were used to support implementation and UI work.
+
+How AI was used:
+- Helped with UI styling ideas for a dark neon theme
+- Helped with small UX improvements such as clearer messages and screen layout
+
+What I did manually:
+- Integrated the final code into the project and adjusted it to match the required game flow
+- Implemented and verified setup validation, ship placement rules, and shooting logic
+- Tested keyboard and mouse controls and ensured sound effects work in gameplay
+
+How I tested the project:
+- Setup validation: checked valid and invalid fleets (GA ≥ 2 × SA)
+- Placement: checked out of bounds placement, overlap prevention, and rotation with R
+- Gameplay: checked hit and miss markers, pass screen behaviour, and win detection
+- Inputs: verified mouse click shooting and keyboard cursor plus Enter shooting
+- Audio: verified hit, miss, and sunk sounds play during gameplay
+
