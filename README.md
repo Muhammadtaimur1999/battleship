@@ -7,6 +7,9 @@
 
 Neon Battleships is a two player Battleship game built with React. The project includes configurable setup, ship placement with drag and drop, a pass screen between turns, turn based shooting with mouse and keyboard, sound effects, and a game over screen with restart.
 
+## Repo Link: 
+https://github.com/Muhammadtaimur1999/battleship
+
 ## How to run
 
 ### Requirements
