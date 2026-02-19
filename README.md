@@ -1,63 +1,105 @@
-# Battleship (DTEK2090 Programming Exercise - Category B)
+# Neon Battleships
 
-## Overview
-This project is a two-player Battleship game built with React. The game supports ship placement using drag-and-drop and turn-based shooting with clear feedback.
+Neon Battleships is a two player Battleship game built with React. The project includes configurable setup, ship placement with drag and drop, a pass screen between turns, turn based shooting with mouse and keyboard, sound effects, and a game over screen with restart.
 
 ## How to run
-1. Install dependencies: `npm install`
-2. Start dev server: `npm run dev`
-3. Open the shown localhost URL.
 
-## Implemented screens (UI flow)
-1. Setup screen  
-   - Player names
-   - Grid size (5–10)
-   - Ship counts
-   - Validation rule: Grid Area >= 2 × Ship Area
+### Requirements
+- Node.js (LTS recommended)
+- npm
 
-2. Placement screen (Player 1, then Player 2)  
-   - Drag ships onto the grid to place them
-   - Press **R** to rotate the ship
-   - Invalid placement feedback (overlap / out of bounds)
+### Start
+1. Install dependencies:
+   - `npm install`
+2. Run the development server:
+   - `npm run dev`
+3. Open the localhost URL printed in the terminal.
 
-3. Pass screen  
-   - Asks to pass the device to the next player (prevents cheating)
+### Optional build check
+1. Build:
+   - `npm run build`
+2. Preview:
+   - `npm run preview`
 
-4. Game screen  
-   - Shows own board + enemy board
-   - Click or use keyboard to shoot enemy grid
-   - Rule: **hit = shoot again**, **miss = turn passes**
+## Game flow
 
-5. Game over screen  
-   - Shows winner + restart
+### 1) Setup screen
+- Enter Player 1 and Player 2 names
+- Choose grid size from 5 to 10
+- Choose ship counts for each ship type
+- Validation shown in the UI:
+  - GA = gridSize × gridSize
+  - SA = sum(shipCount × shipLength)
+  - Rule: GA must be at least 2 × SA
 
-## Input modalities (2+)
-- Mouse / pointer:
-  - Drag-and-drop ship placement
-  - Click to shoot on enemy grid
-- Keyboard:
-  - **R** rotates ships during placement
-  - Arrow keys move cursor on enemy grid
-  - Enter/Space shoots the selected enemy cell
+### 2) Placement screen (Player 1, then Player 2)
+- Place ships using drag and drop
+- Press `R` to rotate ship orientation (horizontal or vertical)
+- The grid shows a preview highlight during drag:
+  - Valid placement is highlighted
+  - Invalid placement shows an error message
+- Confirm placement after all ships are placed
 
-## Output modalities (2+)
-- Graphics:
-  - Dynamic grid drawing (size changes based on setup)
-  - Visual hit/miss markers and cursor highlight
-- Audio:
-  - Sound effects for hit/miss/sunk/click actions
+### 3) Pass screen
+- A handoff screen appears between turns so the next player can take the device
+- This helps prevent the next player from seeing the board early
 
-## Usability notes
-- Visibility of system status: turn indicator + message after each shot
-- Feedback: hit/miss markers + sound effects
-- Error prevention: placement validation and “already shot” warning
-- Learnability: simple setup flow and clear instructions on screen
+### 4) Gameplay screen
+- Two boards are shown:
+  - Your board (ships visible)
+  - Enemy board (ships hidden)
+- Shoot the enemy board until one side loses all ships
+- The UI shows hit and miss markers
+- Sound effects play for key actions (for example hit, miss, and sink)
+- Turn behaviour:
+  - Hit: the current player continues
+  - Miss: the turn passes and the pass screen is shown
 
-## Known limitations / future work
-- Could add stronger animations for hits/misses
-- Could add mobile-friendly layout
+### 5) Game over screen
+- The winner is displayed
+- Restart returns to the setup screen
 
-## AI usage
-- (Write honestly.) Example:
-  - Used AI for brainstorming code structure and naming.
-  - All logic was tested manually in the browser.
+## Controls
+
+### Placement
+- Mouse or trackpad: drag and drop ships onto the grid
+- Keyboard: press `R` to rotate
+
+### Gameplay
+- Mouse or trackpad: click a cell on the enemy board to shoot
+- Keyboard: arrow keys move the cursor on the enemy board
+- Keyboard: press `Enter` to shoot the selected cell
+- Restart button: ends the current game and returns to setup
+
+## Assignment requirement mapping
+
+### Input modalities
+- Mouse or trackpad: form inputs, drag and drop placement, click to shoot
+- Keyboard: rotate with `R`, aim with arrow keys, shoot with `Enter`
+
+### Output modalities
+- Graphics: dynamic rendering of grids and game state (ships on own board, hits, misses, cursor highlight)
+- Audio: sound effects for gameplay feedback
+
+### Views and state transitions
+Setup → Placement (Player 1) → Placement (Player 2) → Pass → Play → Game over → Restart
+
+### Domain model
+- Board and cell state (ship presence, shot, hit)
+- Ship definitions and placement rules
+- Shooting logic and win detection
+- Setup validation using GA and SA
+
+## Project structure
+- `src/model/` game logic (board creation, placement, shooting, win checks, setup validation)
+- `src/ui/screens/` SetupScreen, PlacementScreen, PassScreen, GameScreen
+- `src/ui/components/` BoardGrid
+- `src/ui/theme.css` dark theme styling
+- `src/assets/sounds/` sound effect files
+
+## Notes
+- This is a local two player game on a shared device.
+- Enemy ships are hidden during gameplay.
+
+## AI usage statement
+AI tools were used to assist with UI styling and implementation guidance. All final code was integrated and tested manually.
