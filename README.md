@@ -111,8 +111,8 @@ Setup → Placement (Player 1) → Placement (Player 2) → Pass → Play → Ga
 
 ## Assets
 - `src/assets/sounds/`: hit, miss, sunk, click sound effects
-- Source: https://freesound.org/search
-- License: not applicable (self made) / (or write the license from the source)
+- Source: Freesound
+- License: Creative Commons 0 (CC0)
 
 ## AI usage and validation
 AI tools were used to support implementation and UI work.
