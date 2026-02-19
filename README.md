@@ -1,3 +1,8 @@
+## Contribution
+- Name: Muhammad Taimur
+- Student number: 1.2.246.562.24.54403797018
+- Contribution: Implemented the full project in React (setup and validation, ship placement with drag and drop and rotation, gameplay and turn handoff, UI styling, sound effects, and testing).
+
 # Neon Battleships
 
 Neon Battleships is a two player Battleship game built with React. The project includes configurable setup, ship placement with drag and drop, a pass screen between turns, turn based shooting with mouse and keyboard, sound effects, and a game over screen with restart.
