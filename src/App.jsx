@@ -151,7 +151,7 @@ export default function App() {
   }
 
   if (phase === "PASS") {
-    const name = passTo === 1 ? p2.name : p1.name;
+    const name = passTo === 1 ? p1.name : p2.name;
     return <PassScreen nextPlayerName={name} onContinue={continueAfterPass} />;
   }
 
