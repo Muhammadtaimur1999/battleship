@@ -110,7 +110,7 @@ export default function App() {
       return;
     }
 
-    const nextTurn = turn;
+    const nextTurn = turn === 1 ? 2 : 1;
     setMessage("Miss. Turn passes.");
     setPassTo(nextTurn);
     setPhase("PASS");
