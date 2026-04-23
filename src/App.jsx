@@ -19,7 +19,6 @@ import { makeShipsFromCounts } from "./model/ships";
 
 export default function App() {
   const [phase, setPhase] = useState("SETUP"); // SETUP, P1_PLACE, P2_PLACE, PASS, PLAY, GAME_OVER
-  const [setup, setSetup] = useState(null);
 
   const [p1, setP1] = useState(null);
   const [p2, setP2] = useState(null);
@@ -30,8 +29,6 @@ export default function App() {
   const [winnerName, setWinnerName] = useState("");
 
   function handleStart(newSetup) {
-    setSetup(newSetup);
-
     setP1({
       name: newSetup.player1Name,
       board: makeEmptyBoard(newSetup.gridSize),
@@ -91,8 +88,6 @@ export default function App() {
     if (turn === 1) setP2((old) => ({ ...old, board: nextTargetBoard }));
     else setP1((old) => ({ ...old, board: nextTargetBoard }));
 
-    playSound(hitSfx, 0.4);
-
     if (result.hit) {
       if (result.sunk) playSound(sunkSfx, 0.7);
       else playSound(hitSfx, 0.7);
@@ -123,7 +118,6 @@ export default function App() {
 
   function restart() {
     setPhase("SETUP");
-    setSetup(null);
     setP1(null);
     setP2(null);
     setMessage("");
