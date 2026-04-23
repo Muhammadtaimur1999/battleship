@@ -110,7 +110,7 @@ export default function App() {
       return;
     }
 
-    const nextTurn = turn === 1 ? 2 : 1;
+    const nextTurn = turn;
     setMessage("Miss. Turn passes.");
     setPassTo(nextTurn);
     setPhase("PASS");
@@ -151,7 +151,7 @@ export default function App() {
   }
 
   if (phase === "PASS") {
-    const name = passTo === 1 ? p1.name : p2.name;
+    const name = passTo === 1 ? p2.name : p1.name;
     return <PassScreen nextPlayerName={name} onContinue={continueAfterPass} />;
   }
 
